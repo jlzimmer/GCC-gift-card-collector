@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  
+                                           
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Modify Card
+    <span class="caret"></span></button>
+    <form class="dropdown-menu" method="post" action="modifyCard.php">
+    
+    <div class="form-group">
+      <label for="balance">New Amount</label>
+      <input type="number" name="balance" class="form-control" id="Balance" min="0">
+    </div>
+    <div class="form-group">
+      <label for="serial">Serial Number</label>
+      <input type="text" name="serial" class="form-control" id="Serial">
+    </div>
+    <button type="submit" class="btn btn-primary">Update Card</button>
+  </form>
+ 
+  
+    </div>
+    </div>
+</body>
+</html>
