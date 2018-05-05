@@ -1,21 +1,31 @@
 <?php
     // SQL statement constructors for CRUD operations on individual cards (transactions table)
-    class card {
+    class Card {
         public $result;
-        public $mysqli;
         private $userid;
         private $cardid;
 
         function __construct($user, $card) {
             $this->result = null;
-            require 'db.php';
-            $this->mysqli = $mysql;
             $this->userid = $user;
             $this->cardid = $card;
         }
 
+        function __destruct() {
+
+        }
+
         function read() {
-            $this->result = $mysqli->query("SELECT balanceDelta, date FROM transactions WHERE cardId = $cardid");
+            $this->result = $mysqli->query("SELECT * FROM transactions WHERE cardId = $cardid");
+            $data = array();
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    array_push($data, $row);
+                }
+            }
+
+            return $data;
         }
 
         function update($delta) {
