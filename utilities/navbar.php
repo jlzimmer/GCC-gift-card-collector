@@ -35,15 +35,13 @@
                     <?php
                         $loggedIn = empty($_SESSION['userID']) ? false : true;
 
-                        if ($loggedIn)
-                        {
-                            $append = $_SESSION['user'];
-                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-info navbar-btn" type="button" onclick="location.href=\'library.php?result=loggedIn\'">Wallet</button></li>';
-                            echo '<li class="nav-item raleway" id="logout"><button class="btn btn-danger navbar-btn" type="button" onclick="location.href=\'utilities/logout.php\'">Log Out</button></li>';
+                        if ($loggedIn){
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-info navbar-btn" type="button" onclick="location.href=\'library.php?result=loggedIn&user=' . $_SESSION['user'] . '\'">Wallet</button></li>';
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-secondary navbar-btn" type="button" onclick="location.href=\'newCard.php\'">Add Card</button></li>';
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-danger navbar-btn" type="button" onclick="location.href=\'utilities/logout.php\'">Log Out</button></li>';
                         }
-                        else 
-                        {
-                            echo '<li class="nav-item raleway" id="signup"><button class="btn btn-info navbar-btn" data-toggle="modal" data-target="#signupModal" type="button">Sign Up</button></li>';
+                        else {
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-info navbar-btn" data-toggle="modal" data-target="#signupModal" type="button">Sign Up</button></li>';
                             echo '<li class="nav-item raleway" id="login"><button class="btn btn-success navbar-btn" data-toggle="modal" data-target="#loginModal" type="button">Log In</button></li>';
                         }
                     ?>

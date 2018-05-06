@@ -9,11 +9,15 @@
         }
     
     require_once 'db.php';
+    $mysqli = new mysqli($server, $DBusername, $DBpassword, $dbname);
+        if ($mysqli->connect_error) {
+            header("Location: ../index.php?result=failedSQLconnection");
+            exit;
+        }
 
     $username = $mysqli->real_escape_string($username);
     $password = $mysqli->real_escape_string($password);
     $hashword = password_hash($password, PASSWORD_DEFAULT);
-    
     
     $query = "INSERT INTO users (name, password) VALUES ('$username', '$hashword');";
         
