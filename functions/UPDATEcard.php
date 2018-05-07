@@ -27,7 +27,7 @@
             exit;
         }
         
-        require 'db.php';
+        require '../utilities/db.php';
         $mysqli = new mysqli($server, $DBusername, $DBpassword, $dbname);
             if ($mysqli->connect_error) {
                 header("Location: ../index.php?result=failedSQLconnection");

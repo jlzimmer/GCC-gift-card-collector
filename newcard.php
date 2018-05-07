@@ -16,7 +16,7 @@
                     }
                 ?>
             </div>
-            <form class="raleway" action="utilities/CREATEcard.php" method="POST">
+            <form class="raleway" action="functions/CREATEcard.php" method="POST">
                 <div class="form-group row">
                     <label for="location" class="col-4 col-form-label text-right">Location</label> 
                     <div class="col-4">
