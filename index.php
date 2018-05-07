@@ -12,7 +12,7 @@
                         }
                         
                         else {
-                            echo 'You are NOT logged in. Please select log in or sign up from the navigation bar.';
+                            echo 'You are NOT logged in. Please select Log In or Sign Up from the navigation bar.';
                         }
                     ?>
                 </h2>

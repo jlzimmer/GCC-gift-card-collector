@@ -11,7 +11,6 @@
         header("Location: ../library.php?result=loggedIn&user=$append");
 		exit;
 	}
-
     else {
         handle_login();
     }
@@ -44,20 +43,20 @@
   		    if (password_verify($password, $row['password'])) {
                 $_SESSION['userID'] = $row['id'];
                 $_SESSION['user'] = $row['name'];
+                $mysqli->close();
                 $append = $_SESSION['user'];
                 header("Location: ../library.php?result=loggedIn&user=$append");
                 exit;
             }
-
             else {
+                $mysqli->close();
                 header("Location: ../index.php?result=incorrectPassword");
                 exit;
             }
         }
-
         else {
-            $error = 'Login Error: Please contact the system administrator.';
-            header("Location: ../index.php?result=loginError");
+            $mysqli->close();
+            header("Location: ../index.php?result=SQLerrorContactAdmin");
             exit;
         }
     }

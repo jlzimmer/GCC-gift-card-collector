@@ -26,23 +26,23 @@
 
     <body>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand lobster" href="index.php">GCC - Gift Card Collector</a>
                 </div>
                 <ul class="nav navbar-nav mr-auto">
                     <?php
-                        $loggedIn = empty($_SESSION['userID']) ? false : true;
+                        $login = empty($_SESSION['userID']) ? false : true;
 
-                        if ($loggedIn){
-                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-info navbar-btn" type="button" onclick="location.href=\'library.php?result=loggedIn&user=' . $_SESSION['user'] . '\'">Wallet</button></li>';
-                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-secondary navbar-btn" type="button" onclick="location.href=\'newCard.php\'">Add Card</button></li>';
-                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-danger navbar-btn" type="button" onclick="location.href=\'utilities/logout.php\'">Log Out</button></li>';
+                        if ($login) {
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-outline-info navbar-btn" type="button" onclick="location.href=\'library.php?result=loggedIn&user=' . $_SESSION['user'] . '\'">Wallet</button></li>';
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-outline-secondary navbar-btn" type="button" onclick="location.href=\'newcard.php\'">Add Card</button></li>';
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-outline-danger navbar-btn" type="button" onclick="location.href=\'utilities/logout.php\'">Log Out</button></li>';
                         }
                         else {
-                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-info navbar-btn" data-toggle="modal" data-target="#signupModal" type="button">Sign Up</button></li>';
-                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-success navbar-btn" data-toggle="modal" data-target="#loginModal" type="button">Log In</button></li>';
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-outline-info navbar-btn" data-toggle="modal" data-target="#signupModal" type="button">Sign Up</button></li>';
+                            echo '<li class="nav-item raleway" id="login"><button class="btn btn-outline-success navbar-btn" data-toggle="modal" data-target="#loginModal" type="button">Log In</button></li>';
                         }
                     ?>
                 </ul>
@@ -56,10 +56,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="lineModalLabel">GCC - Login</h3>
+                        <h3 class="modal-title lobster" id="lineModalLabel">GCC - Login</h3>
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                     </div>
-                    <div class="modal-body">	
+                    <div class="modal-body raleway">	
                         <form action="utilities/login.php" method="POST">
                             <div class="form-group">
                                 <label for="exampleUsername">User ID</label>
@@ -83,10 +83,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="lineModalLabel">GCC - Sign Up</h3>
+                        <h3 class="modal-title lobster" id="lineModalLabel">GCC - Sign Up</h3>
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                     </div>
-                    <div class="modal-body">	
+                    <div class="modal-body raleway">	
                         <form action="utilities/signup.php" method="POST">
                             <div class="form-group">
                                 <label for="exampleUsername">User ID</label>
