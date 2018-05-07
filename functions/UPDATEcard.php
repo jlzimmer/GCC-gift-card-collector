@@ -59,7 +59,7 @@
         }
         else {
             $mysqli->close();
-            $_SESSION['add'] = 2;
+            $_SESSION['add'] = 4;
             header("Location: ../library.php?result=SQLerrorContactAdmin");
             exit;
         }

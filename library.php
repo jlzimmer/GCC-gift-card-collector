@@ -1,6 +1,6 @@
 <?php 
     require 'utilities/navbar.php';
-    require 'functions/wallet.php';
+    require 'functions/READwallet.php';
 
     $userid = $_SESSION['userID'];
     $user = $_SESSION['user'];

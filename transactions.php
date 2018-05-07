@@ -1,6 +1,6 @@
 <?php 
     require 'utilities/navbar.php';
-    require 'functions/card.php';
+    require 'functions/READcard.php';
 
     $userid = $_SESSION['userID'];
     $user = $_SESSION['user'];
@@ -15,7 +15,8 @@
                     if ($login) {
                         echo '<h2 class="lobster">Transaction history for card #' . $cardid . '</h2>
                 <h4 class="raleway">$' . $balance . '</h4>
-                <button class="btn btn-outline-secondary raleway" data-toggle="modal" data-target="#updateModal" type="button">Update Balance</button></div>';
+                <button class="btn btn-outline-secondary raleway" data-toggle="modal" data-target="#updateModal" type="button">Update Balance</button>
+                <button class="btn btn-outline-danger raleway" data-toggle="modal" data-target="#deleteModal" type="button">Delete Card</button></div>';
                     }
                     else {
                         echo '<h2 class="lobster">You are NOT logged in. Please select log in or sign up from the navigation bar.</h2></div>';
@@ -50,7 +51,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                     </div>
                     <div class="modal-body raleway">	
-                        <form action="utilities/updatebalance.php" method="POST">
+                        <form action="functions/UPDATEcard.php" method="POST">
                             <div class="form-group">
                                 <label for="balanceDelta"></label>
                                 <input name="balanceDelta" type="text" class="form-control" id="Username" placeholder="Δ balance">
@@ -69,6 +70,31 @@
                             <input type="hidden" name="balance" value="<?php echo $balance?>">
                             <br>
                             <button type="submit" class="btn btn-info">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+            Modal fade delete
+        -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title lobster" id="lineModalLabel">Delete card with ID #<?php echo $cardid;?>?</h3>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    </div>
+                    <div class="modal-body raleway">	
+                        <form action="functions/DELETEcard.php" method="POST">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="verify" id="defaultCheck1" required>
+                                <label class="form-check-label" for="defaultCheck1">Please check the box to verify this action</label>
+                            </div>
+                            <input type="hidden" name="cardID" value="<?php echo $cardid?>">
+                            <br>
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </div>
                 </div>

@@ -87,7 +87,7 @@
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                     </div>
                     <div class="modal-body raleway">	
-                        <form action="utilities/signup.php" method="POST">
+                        <form action="functions/CREATEuser.php" method="POST">
                             <div class="form-group">
                                 <label for="exampleUsername">User ID</label>
                                 <input name="username" type="text" class="form-control" id="newUsername" placeholder="Username">
